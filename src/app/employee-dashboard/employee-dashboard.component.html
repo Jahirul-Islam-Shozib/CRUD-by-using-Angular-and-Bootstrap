@@ -1,0 +1,36 @@
+<table class="table mt-3" >
+  <thead>
+    <tr>
+      <th scope="col">Employee ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email ID</th>
+      <th scope="col">Mobile No</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let info of employeeInfos; let i = index">
+      <td>{{ info.empId }}</td>
+      <td>{{ info.firstName }}</td>
+      <td>{{ info.lastName }}</td>
+      <td>{{ info.emailId }}</td>
+      <td>{{ info.mobileNo }}</td>
+      <td>{{ info.salary }}</td>
+      <td>
+        <button
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          (click)="onEdit(info, i)"
+        >
+          Edit
+        </button>
+        <button class="btn btn-danger" (click)="onDelete(i)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
